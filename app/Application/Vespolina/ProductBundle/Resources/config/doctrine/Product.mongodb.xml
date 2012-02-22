@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                        http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <document name="Application\Vespolina\ProductBundle\Document\Product" collection="vespolinaProduct">
+        <field name="id" id="true"/>
+        <field name="price" fieldName="price" type="float"/>
+        <field name="slug" fieldName="slug" type="string" unique="true"  index="true"/>
+        <field name="random" type="float" index="true"/>
+        <field name="disabled" type="boolean" index="true"/>
+
+        <embed-many
+                target-document="Jeka\TagsBundle\Document\Tag"
+                field="tags"
+                />
+
+        <embed-many
+                target-document="Application\Vespolina\ProductBundle\Document\OptionGroup"
+                field="options"
+                fieldName="options"
+                strategy="set"
+                />
+        <embed-many
+                target-document="Application\Vespolina\ProductBundle\Document\Feature"
+                field="features"
+                fieldName="features"
+                strategy="set"
+                />
+
+        <embed-many
+                target-document="Vespolina\ProductBundle\Document\ProductIdentifierSet"
+                field="identifiers"
+                fieldName="identifiers"
+                strategy="set"
+                />
+
+        <reference-many target-document="Jeka\CategoryBundle\Document\Category" field="categories"
+                        fieldName="categories" strategy="set"/>
+
+        <reference-many target-document="Jeka\ImageBundle\Document\Image" field="images" fieldName="images"
+                        sort='{"pos"="desc"}'/>
+
+
+    </document>
+</doctrine-mongo-mapping>

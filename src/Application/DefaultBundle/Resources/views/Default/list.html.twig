@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="span12 offset1">
+        <h4>Товары</h4>
+        <div class="row">
+        {% for product in products %}
+            <div class="span4">
+                <img class="thumbs" src="">
+                {#{{product.firstCategory.slug}}#}
+                <div><a href="{{path('shop_product',{'category_slug':product.categorySlug,'product_slug':product.slug})}}">{{ product.name }}</a></div>
+                <div class="image">
+                    {% if  product.getPreviewImage()%}
+                    <img src="{{ product.getPreviewImage().getSrc()| apply_filter('prod_thumb')  }}"/>
+                    {% endif%}
+                </div>
+                {% if product.price>0 %}
+                    <div class="price">{{product.price}} <span class="curr">руб.</span></div>
+                {% endif%}
+            </div>
+        {% else %}
+            No products loaded.
+        {% endfor %}
+        </div>
+    </div>
+</div>

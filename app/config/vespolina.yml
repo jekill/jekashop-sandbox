@@ -1,0 +1,26 @@
+vespolina_product:
+    db_driver: mongodb
+    product_manager:
+#        primary_identifier: sku
+        identifiers:
+            sku: Vespolina\ProductBundle\Document\SKUIdentifier
+    product:
+        form:
+            type:               Application\Vespolina\ProductBundle\Form\Type\ProductFormExtendedType #vespolina.product.form.type
+#            handler_service:    vespolina.product.form.handler
+#            name:               vespolina_product_form
+
+#vespolina_monetary:
+#    currency:
+#       base_currency:  EUR #RUR
+
+
+vespolina_cart:
+    db_driver:      mongodb # Required (value should be "mongodb" or "orm" - ORM not yet ready for use)
+
+vespolina_pricing:
+    db_driver: mongodb
+
+vespolina_store:
+    db_driver: mongodb
+    default_store: my

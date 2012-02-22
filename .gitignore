@@ -1,0 +1,8 @@
+web/js/main*
+app/logs/
+app/cache/
+web/bundles/
+.idea
+web/uploads/images/def/
+web/media/
+app/config/parameters.yml

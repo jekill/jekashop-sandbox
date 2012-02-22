@@ -1,0 +1,87 @@
+<?php
+
+namespace Application\Vespolina\ProductBundle\Document;
+
+
+class CartableProduct implements \Vespolina\CartBundle\Model\CartableItemInterface
+{
+    /**
+     * @var MongoId $id
+     */
+    protected $id;
+
+    /**
+     * @var Application\Vespolina\ProductBundle\Document\Product
+     */
+    protected $product;
+
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set product
+     *
+     * @param Application\Vespolina\ProductBundle\Document\Product $product
+     */
+    public function setProduct(\Application\Vespolina\ProductBundle\Document\Product $product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * Get product
+     *
+     * @return Application\Vespolina\ProductBundle\Document\Product $product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+
+    public function __construct(Product $product)
+    {
+        $this->product = $product;
+    }
+
+
+    /**
+     * Return the name of the CartableItem
+     *
+     * @return string name
+     */
+    function getName()
+    {
+        $this->product->getName();
+    }
+
+    /**
+     *
+     * Set the price of the item
+     *
+     * @param $price
+     */
+    function setPrice($price)
+    {
+        // TODO: скорее всего нельзя сохранять цену в инкапсулируемый продукт
+        $this->product->setPrice($price);
+    }
+
+    /**
+     * Return the price of the item
+     *
+     * @return price
+     */
+    function getPrice()
+    {
+        $this->product->getPrice();
+    }
+}

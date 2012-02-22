@@ -1,0 +1,179 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: vespolina.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    annotations:
+        cache:          file
+    charset:         UTF-8
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
+    session:
+        auto_start:     true
+        lifetime:       604800 # 1 week
+        name:           symfony
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    form:
+      resources:
+        #- 'MopaBootstrapBundle:Form:fields.html.twig'
+        - 'JekaShopAdminBundle::fields.html.twig'
+    globals:
+        jeka_shop_name: %jeka_shop.name%
+        
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [JekaShopAdminBundle]
+    java:           %java_path%
+    filters:
+        cssrewrite: ~
+        less:
+            node: %nodepath%
+            node_paths: [%nodemodulearray%]
+        yui_css:
+             jar: %yui_compressor_jar%
+        yui_js:
+             jar: %yui_compressor_jar%
+        # closure:
+        #     jar: %kernel.root_dir%/java/compiler.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   %database_driver%
+                host:     %database_host%
+                port:     %database_port%
+                dbname:   %database_name%
+                user:     %database_user%
+                password: %database_password%
+                charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        #auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+#                    ApplicationSonataMediaBundle: ~
+                    SonataMediaBundle: ~
+
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options:
+                connect: true
+    default_document_manager: default
+    default_database: albomchik #app_%kernel.environment%
+    document_managers:
+        default:
+            #auto_mapping: true
+            mappings:
+                FOSUserBundle: ~
+                VespolinaCustomerBundle: ~
+                VespolinaOrderBundle: ~
+                VespolinaProductBundle: ~
+                VespolinaCartBundle: ~
+                UserBundle: ~
+                ApplicationVespolinaProductBundle: ~
+                ApplicationVespolinaCartBundle: ~
+                ApplicationVespolinaStoreBundle: ~
+ #               ApplicationSonataMediaBundle: ~
+                VespolinaStoreBundle: ~
+                JekaImageBundle: ~
+                JekaCategoryBundle: ~
+                JekaShopBundle: ~
+                JekaTagsBundle: ~
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+
+jms_security_extra:
+    secure_controllers:  true
+    secure_all_services: false
+
+#jms_debugging:
+#    # You can set this to true if you want to automatically retrieve help
+#    # messages for public exceptions. If you leave this set to false, you have
+#    # to click the "search" button manually each time.
+#    auto_help: false
+
+fos_rest:
+    routing_loader:
+        default_format: json
+
+sonata_media:
+    db_driver: doctrine_orm # or doctrine_mongodb
+    default_context: default
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     true
+
+avalanche_imagine:
+    filters:
+        prod_thumb:
+            type:    thumbnail
+            options: { size: [120, 120], mode: outbound }
+        prod_preview:
+            type: thumbnail
+            options: { size: [350, 350], mode: outbound}
+        prod_preview_small:
+            type: thumbnail
+            options: { size: [90, 90], mode: outbound}
+        prod_preview_big:
+            type: thumbnail
+            options: {size: [600,700], mode: outbound}
+        prod_preview_micro:
+            type: thumbnail
+            options: {size: [40,40], mode: outbound}
+
+
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
+
+
+#services:
+#    pagerfanta.view.default:
+#        class: Pagerfanta\View\TwitterBootstrapView
+
+services:

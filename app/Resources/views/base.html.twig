@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {% stylesheets output='css/*.css' filter='less,cssrewrite,?yui_css' debug=false
+                'css/*.less'
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+
+        <meta name="description" content="{%block meta_description%}{%endblock%}">
+        <meta name="keywords" content="{%block meta_keywords%}{%endblock%}">
+
+
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% javascripts output='/js/main.js' filter='?yui_js' debug=true
+            'js/jquery-1.7.1.js'
+            '@JekaShopBundle/Resources/public/js/jeka.shop.js'
+            '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+
+        {% block styles %}{% endblock styles%}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

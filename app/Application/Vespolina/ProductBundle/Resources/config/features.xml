@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="vespolina.feature.manager.class">Application\Vespolina\ProductBundle\Document\FeatureManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="vespolina.feature_manager" class="%vespolina.feature.manager.class%">
+            <argument type="service" id="doctrine.odm.mongodb.default_document_manager" />
+            <argument>%vespolina.feature.form.model.data_class.class%</argument>
+        </service>
+    </services>
+</container>

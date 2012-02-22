@@ -1,0 +1,26 @@
+{% extends "JekaShopBundle::layout.html.twig"%}
+
+{% block categories%}{%endblock%}
+
+{% block title %}
+Контакты
+{% endblock%}
+
+{% block body_class %}pages_contacts{%endblock%}
+
+{% block content %}
+<h1>Контакты</h1>
+<h2>Наши реквизиты</h2>
+<pre>
+    Индивидуальный предприниматель
+    Фомин Евгений Павлович
+</pre>
+<hr/>
+<h2 id="form">Форма для контактов</h2>
+<form action="{{path('pages_contacts')}}" method="post">
+    {{form_rest(form)}}
+    <div class="form-actions">
+        <button type="submit" class="btn">Отправить</button>
+    </div>
+</form>
+{% endblock content%}

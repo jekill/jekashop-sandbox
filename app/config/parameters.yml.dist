@@ -1,0 +1,35 @@
+parameters:
+  database_driver:   pdo_mysql
+  database_host:     localhost
+  database_port:     ~
+  database_name:     myshop
+  database_user:     myshop
+  database_password: mypassw
+
+  mailer_transport:  mail
+  mailer_host:       localhost
+  mailer_user:       ~
+  mailer_password:   ~
+
+  locale:            ru
+  secret:            secretkey
+
+  java_path:         "/usr/bin/java"
+  yui_compressor_jar: "/usr/share/yui-compressor/yui-compressor.jar"
+
+  nodepath:          "/usr/bin/node"
+  nodemodulearray:   "/home/user/bin/node_modules"
+
+  vespolina.product.product_manager.class: Jeka\ShopBundle\Document\ProductManager
+  vespolina.cart.model.cart_item.class:     Application\Vespolina\CartBundle\Document\CartItem
+  vespolina.cart.model.cart.class: Application\Vespolina\CartBundle\Document\Cart
+  vespolina.cart.cart_manager.class: Application\Vespolina\CartBundle\Document\CartManager
+  vespolina.store.model.store.class: Application\Vespolina\StoreBundle\Document\Store
+  vespolina.feature.form.type.class: Vespolina\ProductBundle\Form\Type\FeatureFormType
+  vespolina.option.form.type.class: Application\Vespolina\ProductBundle\Form\Type\OptionFormType
+  vespolina.feature.form.model.data_class.class: Application\Vespolina\ProductBundle\Document\Feature
+
+
+  jeka_shop.name: MyShop.Ru
+
+
