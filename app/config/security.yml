@@ -17,6 +17,7 @@ security:
 
     access_control:
         - { path: "/dashboard.*", role: IS_AUTHENTICATED_FULLY }
+        - { path: "^/admin", roles: ROLE_ADMIN }
         - { path: "/.*", role: IS_AUTHENTICATED_ANONYMOUSLY }
 
 fos_user:
