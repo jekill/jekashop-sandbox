@@ -8,4 +8,5 @@
         <field name="id" id="true"/>
     </document>
 
+
 </doctrine-mongo-mapping>
