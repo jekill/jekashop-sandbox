@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: vespolina.yml }
+    - { resource: "@KnpMarkdownBundle/Resources/config/twig.xml" }
+
 
 framework:
     #esi:             ~
