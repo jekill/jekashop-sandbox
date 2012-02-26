@@ -37,7 +37,7 @@
                 />
 
         <reference-many target-document="Jeka\CategoryBundle\Document\Category" field="categories"
-                        fieldName="categories" strategy="set"/>
+                        fieldName="categories" />
 
         <reference-many target-document="Jeka\ImageBundle\Document\Image" field="images" fieldName="images"
                         sort='{"pos"="desc"}'/>
