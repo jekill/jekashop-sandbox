@@ -13,7 +13,7 @@
 
 [doctrine-common]
     git=http://github.com/doctrine/common.git
-    version=origin/master
+    version=master
 
 [doctrine-dbal]
     git=http://github.com/doctrine/dbal.git
@@ -25,7 +25,7 @@
 
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
-    version=v4.1.5
+    version=origin/master
 
 [assetic]
     git=http://github.com/kriswallsmith/assetic.git

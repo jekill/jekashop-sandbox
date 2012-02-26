@@ -10,6 +10,7 @@
 
 {% block content %}
 <h1>Контакты</h1>
+<hr/>
 <h2>Наши реквизиты</h2>
 <pre>
     Индивидуальный предприниматель
@@ -26,10 +27,20 @@
 </pre>
 <hr/>
 <h2 id="form">Форма для контактов</h2>
-<form action="{{path('pages_contacts')}}" method="post">
-    {{form_rest(form)}}
-    <div class="form-actions">
-        <button type="submit" class="btn">Отправить</button>
-    </div>
-</form>
+
+{% include 'JekaShopBundle::_flash.html.twig'%}
+{% if app.session.hasFlash('success')%}
+<a href="#" class="btn"
+   onclick="$('#feedback_form').show(100);$(this).removeClass('btn').addClass('disabled'); return false;">Написать еще</a>
+<br/><br/><br/>
+{% endif%}
+
+<div id="feedback_form" style="display: {{app.session.hasFlash('success')?'none':''}};">
+    <form action="{{path('pages_contacts')}}" method="post">
+        {{form_rest(form)}}
+        <div class="form-actions">
+            <button type="submit" class="btn">Отправить</button>
+        </div>
+    </form>
+</div>
 {% endblock content%}

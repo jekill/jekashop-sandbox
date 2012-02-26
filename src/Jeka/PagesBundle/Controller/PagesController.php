@@ -31,7 +31,11 @@ class PagesController extends Controller{
 
                 $session->set('customer_info',$data);
                 $session->setFlash('success','Ваш запрос отправлен');
-                return $this->redirect($this->generateUrl('pages_contacts'));
+
+                $mailformer = $this->get('jeka.mail_former');
+                $mailformer->sendFeedbackMail($data);
+
+                return $this->redirect($this->generateUrl('pages_contacts').'#form');
             }
         }
 
