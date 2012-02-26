@@ -34,10 +34,10 @@ class AppKernel extends Kernel
             new Application\Vespolina\ProductBundle\ApplicationVespolinaProductBundle(),
             new Application\Vespolina\CartBundle\ApplicationVespolinaCartBundle(),
 #	    new Application\Vespolina\OrderBundle\ApplicationVespolinaOrderBundle(),
-            
+
             new Application\UserBundle\UserBundle(),
             new Application\DefaultBundle\DefaultBundle(),
-	
+
             new Vespolina\CoreBundle\VespolinaCoreBundle(),
             new Vespolina\CartBundle\VespolinaCartBundle(),
             new Vespolina\CustomerBundle\VespolinaCustomerBundle(),
@@ -59,7 +59,8 @@ class AppKernel extends Kernel
             new Jeka\GrabberBundle\JekaGrabberBundle(),
             new Jeka\ToolsBundle\JekaToolsBundle(),
             new Jeka\PagesBundle\JekaPagesBundle(),
-            );
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+        );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
@@ -76,7 +77,7 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 
     protected function getContainerBaseClass()
