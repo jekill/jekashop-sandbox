@@ -162,7 +162,7 @@ avalanche_imagine:
             options: { size: [90, 90], mode: outbound}
         prod_preview_big:
             type: thumbnail
-            options: {size: [600,700], mode: outbound}
+            options: {size: [600,700], mode: inset}
         prod_preview_micro:
             type: thumbnail
             options: {size: [40,40], mode: outbound}
