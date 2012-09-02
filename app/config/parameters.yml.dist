@@ -17,8 +17,8 @@ parameters:
   java_path:         "/usr/bin/java"
   yui_compressor_jar: "/usr/share/yui-compressor/yui-compressor.jar"
 
-  nodepath:          "/usr/bin/node"
-  nodemodulearray:   "/home/user/bin/node_modules"
+  node_path:          "/usr/bin/node"
+  node_modules:   "/home/jeka/node_modules"
 
   vespolina.product.product_manager.class: Jeka\ShopBundle\Document\ProductManager
   vespolina.cart.model.cart_item.class:     Application\Vespolina\CartBundle\Document\CartItem
@@ -32,4 +32,6 @@ parameters:
 
   jeka_shop.name: MyShop.Ru
 
-
+  jeka_shop.notify.emails:
+    albomchik.ru@jeka.ru: Albomchik.Ru
+    zakaz@albomchik.ru: Albomchik.Ru

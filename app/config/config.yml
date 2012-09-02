@@ -23,6 +23,11 @@ framework:
         lifetime:       604800 # 1 week
         name:           symfony
 
+jeka_shop:
+  feedback:
+    order_notify_emails: %jeka_shop.notify.emails%
+
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
