@@ -43,8 +43,8 @@ assetic:
     filters:
         cssrewrite: ~
         less:
-            node: %nodepath%
-            node_paths: [%nodemodulearray%]
+            node: %node_path%
+            node_paths: [%node_modules%]
         yui_css:
              jar: %yui_compressor_jar%
         yui_js:
