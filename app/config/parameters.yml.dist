@@ -29,9 +29,10 @@ parameters:
   vespolina.option.form.type.class: Application\Vespolina\ProductBundle\Form\Type\OptionFormType
   vespolina.feature.form.model.data_class.class: Application\Vespolina\ProductBundle\Document\Feature
 
-
   jeka_shop.name: MyShop.Ru
 
-  jeka_shop.notify.emails:
-    albomchik.ru@jeka.ru: Albomchik.Ru
-    zakaz@albomchik.ru: Albomchik.Ru
+  jeka_shop.order.notify_emails:
+    shop1@myshop.ru: MyShop.Ru
+    shop2-email@myshop.ru: MyShop.Ru
+
+  jeka_shop.order.back_email: order@myshop.ru

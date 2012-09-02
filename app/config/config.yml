@@ -25,7 +25,8 @@ framework:
 
 jeka_shop:
   feedback:
-    order_notify_emails: %jeka_shop.notify.emails%
+    order_notify_emails: %jeka_shop.order.notify_emails%
+    order_back_email: %jeka_shop.order.back_email%
 
 
 # Twig Configuration
